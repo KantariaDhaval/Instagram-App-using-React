@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="shortcut icon" href="#">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head> 
+<body>
+    <header id="header">
+        <div id="headerContainer">
+            <h2 id="appName">Instagram</h2>
+            <input type="text" id="search" placeholder='&#xF002; Search'>     
+            <div id="pages">
+                <button class="pageIcon" id="homePage">
+                    <i class="fas fa-home"></i>
+                </button>
+                <button class="pageIcon" id="chatPage">
+                    <i class="fab fa-facebook-messenger"></i>
+                </button>
+                <button class="pageIcon" id="searchPage">
+                    <i class="far fa-compass"></i>
+                </button>
+                <button class="pageIcon" id="likePage">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button class="pageIcon" id="profilePage">
+                    <img src="https://i.pinimg.com/236x/a0/4d/84/a04d849cf591c2f980548b982f461401.jpg" alt="Profile Photo" id="profilePhotoIcon">
+                </button>
+            </div>    
+        </div>
+    </header>
+    
+    <div id="profile">
+        
+    </div>
+
+    <div id="menu">
+        <div id="menuContainer">
+            <button class="menuPage" id="postsBtn" data-btntype="POSTS">
+                <i class="fas fa-th menuIcon"></i>
+                POSTS
+            </button>
+            <button class="menuPage" id="igtvBtn" data-btntype="IGTV">
+                <i class="fas fa-tv menuIcon"></i>
+                IGTV
+            </button>
+            <button class="menuPage" id="savedBtn" data-btntype="SAVED">
+                <i class="far fa-bookmark  menuIcon"></i>
+                SAVED
+            </button>
+            <button class="menuPage" id="taggedBtn" data-btntype="TAGGED">
+                <i class="far fa-id-badge  menuIcon"></i>
+                TAGGED
+            </button>
+        </div>
+    </div>
+
+    <div id="postsWrapper">
+        <div class="photos hidden" id="posts">
+            <div class="photosContainer" id="postsContainer">
+                <!-- <div class="photoImage">
+                    <img src="https://images.hdqwalls.com/wallpapers/thumb/2021-rolls-royce-ghost-vn.jpg" alt="photo" class="photo">
+
+                    <div class="likesAndComments">
+                        <button class="photoHoverBtn" id="likeBtn">
+                            <i class="photoHoverIcon fas fa-heart" id="likeIcon"></i>
+                            <span>200</span>
+                        </button>
+                        <button class="photoHoverBtn" id="commentBtn">
+                            <i class="photoHoverIcon fas fa-comment" id="commentIcon"></i>
+                            <span>20</span>
+                        </button>
+                    </div>
+                </div>   -->
+            </div>
+        </div>
+
+        <div class="photos hidden" id="igtv">
+            <div class="photosContainer" id="igtvContainer">
+                <!-- DATA COMES FROM JSON FILE -->
+                <!-- <div class="photoImage">
+                    <video class="photo" controls>
+                        <source src="https://player.vimeo.com/external/176282263.sd.mp4?s=eae20877d2f66cd5b7481c8e9ac2b4b10fd92bef&profile_id=164" type="">
+                        Video is not supported
+                    </video>
+                    <div class="likesAndComments">
+                        <button class="photoHoverBtn" id="likeBtn">
+                            <i class="photoHoverIcon fas fa-heart" id="likeIcon"></i>
+                            <span>200</span>
+                        </button>
+                        <button class="photoHoverBtn" id="commentBtn">
+                            <i class="photoHoverIcon fas fa-comment" id="commentIcon"></i>
+                            <span>20</span>
+                        </button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="photos hidden" id="saved">
+            <div class="photosContainer" id="savedContainer">
+                <!-- DATA COMES FROM JSON FILE -->
+            </div>
+        </div>
+
+        <div class="photos hidden" id="tagged">
+            <div class="photosContainer" id="taggedContainer">
+                <!-- DATA COMES FROM JSON FILE -->
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        
+    </footer>
+
+    <!-- <div id="root"></div> -->
+    <!-- <script src="./app.js"></script> -->
+</body>
+</html>
