@@ -28,7 +28,9 @@ class Posts extends Component {
     if (this.state.loading) {
       return (
         <div id="postsWrapper">
-          <h1>Loading...</h1>
+          <div class="photos">
+            <h1>Loading...</h1>
+          </div>
         </div>
       );
     }
