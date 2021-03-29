@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Header from "./HeaderComponents/Header";
 import Profile from "./ProfileComponents/Profile";
 import Menu from "./MenuComponents/Menu";
 import Posts from "./PostsComponents/Posts";
@@ -8,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: "IGTV",
+      currentTab: "POSTS",
     };
     this.changeCurrentTab = this.changeCurrentTab.bind(this);
   }
@@ -24,6 +25,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         <Profile />
         <Menu
           currentTab={this.state.currentTab}
