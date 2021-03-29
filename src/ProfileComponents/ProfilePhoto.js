@@ -1,20 +1,13 @@
-import { Component } from "react";
+function ProfilePhoto(props) {
+  const profilePhotoIcon = document.getElementById("profilePhotoIcon");
 
-class ProfilePhoto extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-  render() {
-    const profilePhotoIcon = document.getElementById("profilePhotoIcon");
-
-    const { profilePhotoLink } = this.props;
-    profilePhotoIcon.src = profilePhotoLink;
-    return (
-      <div id="profilePhoto">
-        <img src={profilePhotoLink} id="profilePhotoImage" alt="Profile"></img>
-      </div>
-    );
-  }
+  const { profilePhotoLink } = props;
+  profilePhotoIcon.src = profilePhotoLink;
+  return (
+    <div id="profilePhoto">
+      <img src={profilePhotoLink} id="profilePhotoImage" alt="Profile"></img>
+    </div>
+  );
 }
 
 export default ProfilePhoto;

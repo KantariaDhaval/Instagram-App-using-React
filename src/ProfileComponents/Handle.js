@@ -8,9 +8,15 @@ class Handle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFollowed: this.props.isFollowed,
+      isFollowed: false,
     };
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      isFollowed: this.props.isFollowed,
+    });
   }
 
   handleClick() {

@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Profile from "./ProfileComponents/Profile";
-import Footer from "./FooterComponents/Footer";
+import App from "./App";
 import "./index.css";
 
-ReactDOM.render(<Profile />, document.getElementById("profile"));
-ReactDOM.render(<Footer />, document.getElementById("footer"));
+ReactDOM.render(<App />, document.getElementById("root"));

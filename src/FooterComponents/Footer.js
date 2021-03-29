@@ -3,9 +3,11 @@ import Languages from "./Languages";
 
 function Footer() {
   return (
-    <div id="footerContainer">
-      <SiteInfo />
-      <Languages />
+    <div id="footer">
+      <div id="footerContainer">
+        <SiteInfo />
+        <Languages />
+      </div>
     </div>
   );
 }
