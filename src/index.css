@@ -45,6 +45,8 @@ video:focus {
   font-family: "Lobster Two", cursive;
   font-size: 2.7rem;
   font-weight: 400;
+  color: black;
+  text-decoration: none;
 }
 
 #search {
