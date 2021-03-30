@@ -7,17 +7,10 @@ class ProfileData extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFollowed: false,
-      followers: 0,
-    };
-    this.handleFollowButtonClick = this.handleFollowButtonClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
       isFollowed: this.props.profileData.isFollowed,
       followers: this.props.profileData.followers,
-    });
+    };
+    this.handleFollowButtonClick = this.handleFollowButtonClick.bind(this);
   }
 
   handleFollowButtonClick() {

@@ -4,17 +4,10 @@ class CommentButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isCommented: false,
-      numberOfComments: 0,
-    };
-    this.handleCommentButtonClick = this.handleCommentButtonClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
       isCommented: this.props.isCommented,
       numberOfComments: this.props.numberOfComments,
-    });
+    };
+    this.handleCommentButtonClick = this.handleCommentButtonClick.bind(this);
   }
 
   handleCommentButtonClick() {

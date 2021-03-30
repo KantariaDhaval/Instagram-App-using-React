@@ -4,17 +4,10 @@ class LikeButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLiked: false,
-      numberOfLikes: 0,
-    };
-    this.handleLikeButtonClick = this.handleLikeButtonClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
       isLiked: this.props.isLiked,
       numberOfLikes: this.props.numberOfLikes,
-    });
+    };
+    this.handleLikeButtonClick = this.handleLikeButtonClick.bind(this);
   }
 
   handleLikeButtonClick() {

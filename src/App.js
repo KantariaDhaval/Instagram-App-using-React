@@ -18,10 +18,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("./../Data.json")
+    fetch("./Data.json")
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         this.setState({
           profilePhotoLink: data.profileData.profilePhotoLink,
           profileData: data.profileData,
