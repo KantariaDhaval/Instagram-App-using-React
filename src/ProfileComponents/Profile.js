@@ -2,12 +2,15 @@ import ProfilePhoto from "./ProfilePhoto";
 import ProfileData from "./ProfileData";
 
 function Profile(props) {
-  const { profileData } = props;
+  const { profileData, handleFollowButtonClick } = props;
   return (
     <div id="profile">
       <div id="profileContainer">
         <ProfilePhoto profilePhotoLink={profileData.profilePhotoLink} />
-        <ProfileData profileData={profileData} />
+        <ProfileData
+          profileData={profileData}
+          handleFollowButtonClick={handleFollowButtonClick}
+        />
       </div>
     </div>
   );

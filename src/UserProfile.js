@@ -1,19 +1,19 @@
 import { Component } from "react";
 
-class Search extends Component {
+class UserProfile extends Component {
   componentDidMount() {
-    document.title = "Search - Instagram";
+    document.title = "User Profile - Instagram";
   }
 
   render() {
     return (
       <div id="profile">
         <div id="profileContainer">
-          <h1>Search</h1>
+          <h1>User Profile</h1>
         </div>
       </div>
     );
   }
 }
 
-export default Search;
+export default UserProfile;

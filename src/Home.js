@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Profile from "./ProfileComponents/Profile";
 import Menu from "./MenuComponents/Menu";
 import Posts from "./PostsComponents/Posts";
@@ -13,10 +13,12 @@ class Home extends Component {
         "https://i.pinimg.com/236x/a0/4d/84/a04d849cf591c2f980548b982f461401.jpg",
       loading: true,
     };
+    this.handleFollowButtonClick = this.handleFollowButtonClick.bind(this);
     this.changeCurrentTab = this.changeCurrentTab.bind(this);
   }
 
   componentDidMount() {
+    document.title = "Home - Instagram";
     fetch("./Data.json")
       .then((response) => response.json())
       .then((data) => {
@@ -33,6 +35,17 @@ class Home extends Component {
       });
   }
 
+  handleFollowButtonClick() {
+    let newProfileData = this.state.profileData;
+    newProfileData.isFollowed = !this.state.profileData.isFollowed;
+    newProfileData.followers = this.state.profileData.isFollowed
+      ? newProfileData.followers + 1
+      : newProfileData.followers - 1;
+    this.setState({
+      profileData: newProfileData,
+    });
+  }
+
   changeCurrentTab(event) {
     if (event.target.dataset.menutab === "true") {
       this.setState({
@@ -46,8 +59,11 @@ class Home extends Component {
       return <h1>Loading...</h1>;
     }
     return (
-      <div>
-        <Profile profileData={this.state.profileData} />
+      <Fragment>
+        <Profile
+          profileData={this.state.profileData}
+          handleFollowButtonClick={this.handleFollowButtonClick}
+        />
         <Menu
           currentTab={this.state.currentTab}
           changeCurrentTab={this.changeCurrentTab}
@@ -60,7 +76,7 @@ class Home extends Component {
           taggedData={this.state.taggedData}
         />
         <Footer />
-      </div>
+      </Fragment>
     );
   }
 }
