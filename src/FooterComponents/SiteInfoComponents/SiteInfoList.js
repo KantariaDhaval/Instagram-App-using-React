@@ -1,4 +1,5 @@
 import SiteInfoListItem from "./SiteInfoListItem";
+import PropTypes from "prop-types";
 
 function SiteInfoList(props) {
   const { list } = props;
@@ -15,5 +16,13 @@ function SiteInfoList(props) {
 
   return <ul id="listsOfInfo">{listItems}</ul>;
 }
+
+SiteInfoList.propTypes = {
+  list: PropTypes.object,
+};
+
+SiteInfoList.defaultProps = {
+  list: {},
+};
 
 export default SiteInfoList;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Header(props) {
   const { profilePhotoLink } = props;
   return (
@@ -26,5 +28,14 @@ function Header(props) {
     </div>
   );
 }
+
+Header.propTypes = {
+  profilePhotoLink: PropTypes.string,
+};
+
+Header.defaultProps = {
+  profilePhotoLink:
+    "https://i.pinimg.com/236x/a0/4d/84/a04d849cf591c2f980548b982f461401.jpg",
+};
 
 export default Header;

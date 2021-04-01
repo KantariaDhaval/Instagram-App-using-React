@@ -1,4 +1,5 @@
 import BaseButton from "../../BaseButton";
+import PropTypes from "prop-types";
 
 function FollowButton(props) {
   const { isFollowed, handleClick } = props;
@@ -11,5 +12,15 @@ function FollowButton(props) {
     />
   );
 }
+
+FollowButton.propTypes = {
+  isFollowed: PropTypes.bool,
+  handleClick: PropTypes.func,
+};
+
+FollowButton.defaultProps = {
+  isFollowed: false,
+  handleClick: () => {},
+};
 
 export default FollowButton;

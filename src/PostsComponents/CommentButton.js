@@ -1,4 +1,5 @@
 import { Component } from "react";
+import PropTypes from "prop-types";
 
 class CommentButton extends Component {
   constructor(props) {
@@ -44,5 +45,19 @@ class CommentButton extends Component {
     );
   }
 }
+
+CommentButton.propTypes = {
+  isCommented: PropTypes.bool,
+  numberOfComments: PropTypes.number,
+  id: PropTypes.number,
+  dataType: PropTypes.string,
+};
+
+CommentButton.defaultProps = {
+  isCommented: false,
+  numberOfComments: 0,
+  id: 0,
+  dataType: "",
+};
 
 export default CommentButton;

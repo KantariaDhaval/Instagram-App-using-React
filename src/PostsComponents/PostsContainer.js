@@ -1,4 +1,5 @@
 import AddPost from "./AddPost";
+import PropTypes from "prop-types";
 
 function PostsContainer(props) {
   const { data, currentTab, name } = props;
@@ -13,5 +14,17 @@ function PostsContainer(props) {
     </div>
   );
 }
+
+PostsContainer.propTypes = {
+  data: PropTypes.array,
+  currentTab: PropTypes.string,
+  name: PropTypes.string,
+};
+
+PostsContainer.defaultProps = {
+  data: [],
+  currentTab: "POSTS",
+  name: "",
+};
 
 export default PostsContainer;

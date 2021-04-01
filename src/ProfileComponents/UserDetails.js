@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function OtherDetails(props) {
   const { username, designation, bio, websiteLink } = props;
   return (
@@ -15,5 +17,19 @@ function OtherDetails(props) {
     </div>
   );
 }
+
+OtherDetails.propTypes = {
+  username: PropTypes.string,
+  designation: PropTypes.string,
+  bio: PropTypes.string,
+  websiteLink: PropTypes.string,
+};
+
+OtherDetails.defaultProps = {
+  username: "",
+  designation: "",
+  bio: "",
+  websiteLink: "'",
+};
 
 export default OtherDetails;

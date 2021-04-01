@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function AccountDetails(props) {
   const { numberOfPosts, followers, following } = props;
   const accountDetails = [
@@ -32,5 +34,17 @@ function AccountDetails(props) {
   });
   return <div id="accountDetails">{accountDetailsElements}</div>;
 }
+
+AccountDetails.propTypes = {
+  numberOfPosts: PropTypes.number,
+  followers: PropTypes.number,
+  following: PropTypes.number,
+};
+
+AccountDetails.defaultProps = {
+  numberOfPosts: 0,
+  followers: 0,
+  following: 0,
+};
 
 export default AccountDetails;

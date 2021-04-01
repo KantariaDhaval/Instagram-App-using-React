@@ -2,6 +2,7 @@ import Handle from "./HandleComponents/Handle";
 import AccountDetails from "./AccountDetails";
 import UserDetails from "./UserDetails";
 import { Component } from "react";
+import PropTypes from "prop-types";
 
 class ProfileData extends Component {
   constructor(props) {
@@ -57,5 +58,23 @@ class ProfileData extends Component {
     );
   }
 }
+
+ProfileData.propTypes = {
+  profileData: PropTypes.object,
+};
+
+ProfileData.defaultProps = {
+  profileData: {
+    handleName: "",
+    numberOfPosts: 0,
+    following: 0,
+    username: 0,
+    designation: "",
+    bio: "",
+    websiteLink: "",
+    isFollowed: false,
+    followers: 0,
+  },
+};
 
 export default ProfileData;

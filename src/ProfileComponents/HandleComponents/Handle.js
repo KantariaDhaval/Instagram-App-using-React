@@ -2,6 +2,7 @@ import HandleName from "./HandleName";
 import FollowButton from "./FollowButton";
 import MessageButton from "./MessageButton";
 import DropdownButton from "./DropdownButton";
+import PropTypes from "prop-types";
 
 function Handle(props) {
   const { handleName, isFollowed, handleFollowButtonClick } = props;
@@ -18,5 +19,17 @@ function Handle(props) {
     </div>
   );
 }
+
+Handle.propTypes = {
+  handleName: PropTypes.string,
+  isFollowed: PropTypes.bool,
+  handleFollowButtonClick: PropTypes.func,
+};
+
+Handle.defaultProps = {
+  handleName: "",
+  isFollowed: false,
+  handleFollowButtonClick: () => {},
+};
 
 export default Handle;

@@ -1,5 +1,6 @@
 import MenuTab from "./MenuTab";
 import { tabNames } from "./../registry.js";
+import PropTypes from "prop-types";
 
 function Menu(props) {
   const { changeCurrentTab, currentTab } = props;
@@ -51,5 +52,15 @@ function Menu(props) {
     </div>
   );
 }
+
+Menu.propTypes = {
+  changeCurrentTab: PropTypes.func,
+  currentTab: PropTypes.string,
+};
+
+Menu.defaultProps = {
+  changeCurrentTab: () => {},
+  currentTab: "POSTS",
+};
 
 export default Menu;

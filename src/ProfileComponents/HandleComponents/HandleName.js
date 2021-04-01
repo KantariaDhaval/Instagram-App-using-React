@@ -1,5 +1,16 @@
+import PropTypes from "prop-types";
+
 function HandleName(props) {
-  return <div id="handleName">{props.handleName}</div>;
+  const { handleName } = props;
+  return <div id="handleName">{handleName}</div>;
 }
+
+HandleName.propTypes = {
+  handleName: PropTypes.string,
+};
+
+HandleName.defaultProps = {
+  handleName: "",
+};
 
 export default HandleName;

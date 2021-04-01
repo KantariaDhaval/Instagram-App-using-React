@@ -1,5 +1,6 @@
 import PostsContainer from "./PostsContainer";
 import { tabNames } from "./../registry";
+import PropTypes from "prop-types";
 
 function Posts(props) {
   const { postsData, igtvData, savedData, taggedData, currentTab } = props;
@@ -39,5 +40,21 @@ function Posts(props) {
 
   return <div id="postsWrapper">{dataArrayElements}</div>;
 }
+
+Posts.propTypes = {
+  postsData: PropTypes.array,
+  igtvData: PropTypes.array,
+  savedData: PropTypes.array,
+  taggedData: PropTypes.array,
+  currentTab: PropTypes.string,
+};
+
+Posts.defaultProps = {
+  postsData: [],
+  igtvData: [],
+  savedData: [],
+  taggedData: [],
+  currentTab: "POSTS",
+};
 
 export default Posts;

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import PropTypes from "prop-types";
 
 class LikeButton extends Component {
   constructor(props) {
@@ -44,5 +45,19 @@ class LikeButton extends Component {
     );
   }
 }
+
+LikeButton.propTypes = {
+  isLiked: PropTypes.bool,
+  numberOfLikes: PropTypes.number,
+  id: PropTypes.number,
+  dataType: PropTypes.string,
+};
+
+LikeButton.defaultProps = {
+  isLiked: false,
+  numberOfLikes: 0,
+  id: 0,
+  dataType: "",
+};
 
 export default LikeButton;

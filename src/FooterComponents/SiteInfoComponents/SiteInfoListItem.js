@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function SiteInfoListItem(props) {
   const { name, infoLink } = props;
   return (
@@ -8,5 +10,15 @@ function SiteInfoListItem(props) {
     </li>
   );
 }
+
+SiteInfoListItem.propTypes = {
+  name: PropTypes.string,
+  infoLink: PropTypes.string,
+};
+
+SiteInfoListItem.defaultProps = {
+  name: "Home",
+  infoLink: "/",
+};
 
 export default SiteInfoListItem;
