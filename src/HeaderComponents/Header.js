@@ -5,21 +5,21 @@ function Header(props) {
       <div id="headerContainer">
         <h2 id="appName">Instagram</h2>
         <input type="text" id="search" placeholder="&#xF002; Search" />
-        <div id="pages">
-          <button className="pageIcon" id="homePage">
-            <i className="fas fa-home"></i>
+        <div className="pages">
+          <button className="pageBtn">
+            <i className="fas fa-home pageIcon"></i>
           </button>
-          <button className="pageIcon" id="chatPage">
-            <i className="fab fa-facebook-messenger"></i>
+          <button className="pageBtn">
+            <i className="fab fa-facebook-messenger pageIcon"></i>
           </button>
-          <button className="pageIcon" id="searchPage">
-            <i className="far fa-compass"></i>
+          <button className="pageBtn">
+            <i className="far fa-compass pageIcon"></i>
           </button>
-          <button className="pageIcon" id="likePage">
-            <i className="far fa-heart"></i>
+          <button className="pageBtn">
+            <i className="far fa-heart pageIcon"></i>
           </button>
-          <button className="pageIcon" id="profilePage">
-            <img src={profilePhotoLink} alt="Profile" id="profilePhotoIcon" />
+          <button className="pageBtn">
+            <img src={profilePhotoLink} id="accountPic" alt="Profile" />
           </button>
         </div>
       </div>
