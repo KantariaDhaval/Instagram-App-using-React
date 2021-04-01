@@ -1,27 +1,36 @@
 function AccountDetails(props) {
   const { numberOfPosts, followers, following } = props;
-  return (
-    <div id="accountDetails">
-      <p className="accountDetailContainer">
-        <span className="accountDetail" id="numberOfPosts">
-          {numberOfPosts}
+  const accountDetails = [
+    {
+      id: "numberOfPosts",
+      innerText: "posts",
+      valueOfCurrentDetail: numberOfPosts,
+      key: 1,
+    },
+    {
+      id: "followers",
+      innerText: "followers",
+      valueOfCurrentDetail: followers,
+      key: 2,
+    },
+    {
+      id: "following",
+      innerText: "following",
+      valueOfCurrentDetail: following,
+      key: 3,
+    },
+  ];
+  const accountDetailsElements = accountDetails.map((detail) => {
+    return (
+      <p className="accountDetailContainer" key={detail.key}>
+        <span className="accountDetail" id={detail.id}>
+          {detail.valueOfCurrentDetail}
         </span>
-        posts
+        {detail.innerText}
       </p>
-      <p className="accountDetailContainer">
-        <span className="accountDetail" id="followers">
-          {followers}
-        </span>
-        followers
-      </p>
-      <p className="accountDetailContainer">
-        <span className="accountDetail" id="following">
-          {following}
-        </span>
-        following
-      </p>
-    </div>
-  );
+    );
+  });
+  return <div id="accountDetails">{accountDetailsElements}</div>;
 }
 
 export default AccountDetails;

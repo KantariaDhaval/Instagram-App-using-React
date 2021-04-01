@@ -1,4 +1,4 @@
-function AddVideo(props) {
+function PostVideo(props) {
   return (
     <video className="photo" controls>
       <source src={props.videoLink} />
@@ -7,4 +7,4 @@ function AddVideo(props) {
   );
 }
 
-export default AddVideo;
+export default PostVideo;

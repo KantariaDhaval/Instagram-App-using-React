@@ -1,6 +1,6 @@
 import { Component } from "react";
 import uuid from "react-uuid";
-import SelectLanguageOption from "./SelectLanguageOption";
+import { languages } from "../FooterData";
 
 class SelectLanguage extends Component {
   constructor(props) {
@@ -16,18 +16,12 @@ class SelectLanguage extends Component {
   }
 
   render() {
-    const languages = [
-      "English",
-      "English-UK",
-      "French",
-      "Spanish",
-      "German",
-      "Hindi",
-      "Gujarati",
-    ];
-
     const languageOptions = languages.map((language) => {
-      return <SelectLanguageOption key={uuid()} language={language} />;
+      return (
+        <option key={uuid()} value={language}>
+          {language}
+        </option>
+      );
     });
 
     return (

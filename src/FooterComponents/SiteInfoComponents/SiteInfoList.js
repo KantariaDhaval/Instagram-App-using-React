@@ -1,9 +1,16 @@
 import SiteInfoListItem from "./SiteInfoListItem";
 
 function SiteInfoList(props) {
-  const list = props.list;
+  const { list } = props;
+
   const listItems = list.map((item) => {
-    return <SiteInfoListItem key={item.id} item={item} />;
+    return (
+      <SiteInfoListItem
+        key={item.id}
+        name={item.name}
+        infoLink={item.infoLink}
+      />
+    );
   });
 
   return <ul id="listsOfInfo">{listItems}</ul>;

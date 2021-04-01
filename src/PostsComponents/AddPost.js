@@ -1,11 +1,11 @@
-import AddImage from "./AddImage";
-import AddVideo from "./AddVideo";
+import PostImage from "./PostImage";
+import PostVideo from "./PostVideo";
 import LikesAndComments from "./LikesAndComments";
 
 function AddPost(props) {
   const {
     id,
-    photoImageLink,
+    postLink,
     alt,
     numberOfLikes,
     numberOfComments,
@@ -18,9 +18,9 @@ function AddPost(props) {
   return (
     <div className="photoImage">
       {postType === "Image" ? (
-        <AddImage imageLink={photoImageLink} alt={alt} />
+        <PostImage imageLink={postLink} alt={alt} />
       ) : (
-        <AddVideo videoLink={photoImageLink} alt={alt} />
+        <PostVideo videoLink={postLink} alt={alt} />
       )}
       <LikesAndComments
         id={id}

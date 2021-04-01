@@ -13,6 +13,7 @@ class App extends Component {
       profilePhotoLink:
         "https://i.pinimg.com/236x/a0/4d/84/a04d849cf591c2f980548b982f461401.jpg",
       loading: true,
+      error: false,
     };
     this.changeCurrentTab = this.changeCurrentTab.bind(this);
   }
@@ -21,7 +22,6 @@ class App extends Component {
     fetch("./Data.json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         this.setState({
           profilePhotoLink: data.profileData.profilePhotoLink,
           profileData: data.profileData,
@@ -31,13 +31,20 @@ class App extends Component {
           taggedData: data.taggedData,
           loading: false,
         });
+      })
+      .catch((err) => {
+        this.setState({
+          loading: false,
+          error: true,
+        });
+        console.log("Error: ", err);
       });
   }
 
   changeCurrentTab(event) {
-    if (event.target.dataset.menutab === "true") {
+    if (event.target.dataset.menu_tab) {
       this.setState({
-        currentTab: event.target.dataset.btntype,
+        currentTab: event.target.dataset.menu_tab_name,
       });
     }
   }
@@ -45,6 +52,9 @@ class App extends Component {
   render() {
     if (this.state.loading) {
       return <h1>Loading...</h1>;
+    }
+    if (this.state.error) {
+      return <h1>Some error occured...</h1>;
     }
     return (
       <div>

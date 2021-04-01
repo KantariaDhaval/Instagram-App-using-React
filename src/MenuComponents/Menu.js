@@ -1,55 +1,55 @@
-import { Component } from "react";
 import MenuTab from "./MenuTab";
+import { tabNames } from "./../registry.js";
 
-class Menu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // currentTab: "POSTS",
-    };
-    // this.handleClick = this.handleClick.bind(this);
-  }
+function Menu(props) {
+  const { changeCurrentTab, currentTab } = props;
 
-  // handleClick(event) {
-  //   if (event.target.dataset.menutab === "true") {
-  //     this.setState({
-  //       currentTab: event.target.dataset.btntype,
-  //     });
-  //   }
-  // }
+  const menuTabs = [
+    {
+      key: 1,
+      innerText: tabNames.POSTS,
+      iconClasses: "fas fa-th menuIcon",
+      menuTabName: tabNames.POSTS,
+    },
+    {
+      key: 2,
+      innerText: tabNames.IGTV,
+      iconClasses: "fas fa-tv menuIcon",
+      menuTabName: tabNames.IGTV,
+    },
+    {
+      key: 3,
+      innerText: tabNames.SAVED,
+      iconClasses: "far fa-bookmark  menuIcon",
+      menuTabName: tabNames.SAVED,
+    },
+    {
+      key: 4,
+      innerText: tabNames.TAGGED,
+      iconClasses: "far fa-id-badge  menuIcon",
+      menuTabName: tabNames.TAGGED,
+    },
+  ];
 
-  render() {
+  const menuTabElements = menuTabs.map((menuTab) => {
     return (
-      <div id="menu">
-        <div id="menuContainer" onClick={this.props.changeCurrentTab}>
-          <MenuTab
-            currentTab={this.props.currentTab}
-            tabName="POSTS"
-            iconClasses="fas fa-th menuIcon"
-            btnType="POSTS"
-          />
-          <MenuTab
-            currentTab={this.props.currentTab}
-            tabName="IGTV"
-            iconClasses="fas fa-tv menuIcon"
-            btnType="IGTV"
-          />
-          <MenuTab
-            currentTab={this.props.currentTab}
-            tabName="SAVED"
-            iconClasses="far fa-bookmark  menuIcon"
-            btnType="SAVED"
-          />
-          <MenuTab
-            currentTab={this.props.currentTab}
-            tabName="TAGGED"
-            iconClasses="far fa-id-badge  menuIcon"
-            btnType="TAGGED"
-          />
-        </div>
-      </div>
+      <MenuTab
+        key={menuTab.key}
+        currentTab={currentTab}
+        innerText={menuTab.innerText}
+        iconClasses={menuTab.iconClasses}
+        menuTabName={menuTab.menuTabName}
+      />
     );
-  }
+  });
+
+  return (
+    <div id="menu">
+      <div id="menuContainer" onClick={changeCurrentTab}>
+        {menuTabElements}
+      </div>
+    </div>
+  );
 }
 
 export default Menu;

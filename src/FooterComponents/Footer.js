@@ -1,5 +1,5 @@
-import SiteInfo from "./SiteInfo";
-import Languages from "./Languages";
+import SiteInfo from "./SiteInfoComponents/SiteInfo";
+import Languages from "./LanguagesComponents/Languages";
 
 function Footer() {
   return (

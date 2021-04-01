@@ -1,4 +1,4 @@
-import Handle from "./Handle";
+import Handle from "./HandleComponents/Handle";
 import AccountDetails from "./AccountDetails";
 import UserDetails from "./UserDetails";
 import { Component } from "react";

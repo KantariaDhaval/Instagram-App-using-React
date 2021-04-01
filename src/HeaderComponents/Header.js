@@ -1,4 +1,5 @@
 function Header(props) {
+  const { profilePhotoLink } = props;
   return (
     <div id="header">
       <div id="headerContainer">
@@ -18,11 +19,7 @@ function Header(props) {
             <i className="far fa-heart"></i>
           </button>
           <button className="pageIcon" id="profilePage">
-            <img
-              src={props.profilePhotoLink}
-              alt="Profile"
-              id="profilePhotoIcon"
-            />
+            <img src={profilePhotoLink} alt="Profile" id="profilePhotoIcon" />
           </button>
         </div>
       </div>

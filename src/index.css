@@ -156,6 +156,7 @@ video:focus {
   font-weight: 600;
   font-size: 1.44rem;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .dropdownBtn {
@@ -169,6 +170,12 @@ video:focus {
 
 .followBtn:hover {
   background-color: rgb(0, 100, 255);
+  transform: scale(1.05);
+}
+
+.messageBtn:hover,
+.dropdownBtn:hover {
+  background-color: #cccccc;
   transform: scale(1.05);
 }
 
