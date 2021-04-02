@@ -1,63 +1,48 @@
-import { Component } from "react";
 import PropTypes from "prop-types";
+import withToggleHandler from "../withToggleHandler";
+import BaseButton from "./../BaseButton";
 
-class LikeButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLiked: this.props.isLiked,
-      numberOfLikes: this.props.numberOfLikes,
-    };
-    this.handleLikeButtonClick = this.handleLikeButtonClick.bind(this);
-  }
-
-  handleLikeButtonClick() {
-    this.setState((prevState) => {
-      return {
-        isLiked: !prevState.isLiked,
-        numberOfLikes: prevState.isLiked
-          ? prevState.numberOfLikes - 1
-          : prevState.numberOfLikes + 1,
-      };
-    });
-  }
-
-  render() {
-    const { id, dataType } = this.props;
-    return (
-      <button
-        className="photoHoverBtn likeBtn"
-        id={`likeBtn` + dataType + id}
-        data-index={id}
-        data-btntype="likeOrCommentBtn"
-        onClick={this.handleLikeButtonClick}
-      >
-        <i
-          className={
-            this.state.isLiked
-              ? "photoHoverIcon fas fa-heart activeLikeIcon"
-              : "photoHoverIcon fas fa-heart"
-          }
-          data-btntype="likeIcon"
-        ></i>
-        <span className="numberOfCounts">{this.state.numberOfLikes}</span>
-      </button>
-    );
-  }
+function LikeButton(props) {
+  const { id, dataType, isToggled, numberOfCounts, handleClick } = props;
+  return (
+    <BaseButton
+      classes="photoHoverBtn likeBtn"
+      id={`likeBtn` + dataType + id}
+      onClick={handleClick}
+      innerText={
+        <>
+          <i
+            className={
+              isToggled
+                ? "photoHoverIcon fas fa-heart activeLikeIcon"
+                : "photoHoverIcon fas fa-heart"
+            }
+            data-btntype="likeIcon"
+          ></i>
+          <span className="numberOfCounts">{numberOfCounts}</span>
+        </>
+      }
+    />
+  );
 }
 
 LikeButton.propTypes = {
   isLiked: PropTypes.bool,
   numberOfLikes: PropTypes.number,
-  id: PropTypes.number,
+  id: PropTypes.string,
   dataType: PropTypes.string,
 };
 
 LikeButton.defaultProps = {
   isLiked: false,
   numberOfLikes: 0,
-  id: 0,
+  id: "",
   dataType: "",
 };
 
-export default LikeButton;
+export default withToggleHandler(LikeButton, (props) => {
+  return {
+    isToggled: props.isLiked,
+    numberOfCounts: props.numberOfLikes,
+  };
+});

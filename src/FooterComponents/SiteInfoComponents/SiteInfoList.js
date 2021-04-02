@@ -18,11 +18,11 @@ function SiteInfoList(props) {
 }
 
 SiteInfoList.propTypes = {
-  list: PropTypes.object,
+  list: PropTypes.array,
 };
 
 SiteInfoList.defaultProps = {
-  list: {},
+  list: [],
 };
 
 export default SiteInfoList;

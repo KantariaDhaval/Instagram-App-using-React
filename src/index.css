@@ -174,13 +174,13 @@ video:focus {
   cursor: pointer;
 }
 
-.followBtn:hover {
+.followBtn:hover,
+.dropdownBtn:hover {
   background-color: rgb(0, 100, 255);
   transform: scale(1.05);
 }
 
-.messageBtn:hover,
-.dropdownBtn:hover {
+.messageBtn:hover {
   background-color: #cccccc;
   transform: scale(1.05);
 }

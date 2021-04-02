@@ -1,63 +1,48 @@
-import { Component } from "react";
 import PropTypes from "prop-types";
+import withToggleHandler from "../withToggleHandler";
+import BaseButton from "../BaseButton";
 
-class CommentButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isCommented: this.props.isCommented,
-      numberOfComments: this.props.numberOfComments,
-    };
-    this.handleCommentButtonClick = this.handleCommentButtonClick.bind(this);
-  }
-
-  handleCommentButtonClick() {
-    this.setState((prevState) => {
-      return {
-        isCommented: !prevState.isCommented,
-        numberOfComments: prevState.isCommented
-          ? prevState.numberOfComments - 1
-          : prevState.numberOfComments + 1,
-      };
-    });
-  }
-
-  render() {
-    const { id, dataType } = this.props;
-    return (
-      <button
-        className="photoHoverBtn commentBtn"
-        id={`commentBtn` + dataType + id}
-        data-index={id}
-        data-btntype="likeOrCommentBtn"
-        onClick={this.handleCommentButtonClick}
-      >
-        <i
-          className={
-            this.state.isCommented
-              ? "photoHoverIcon fas fa-comment activeCommentIcon"
-              : "photoHoverIcon fas fa-comment"
-          }
-          data-btntype="commentIcon"
-        ></i>
-        <span className="numberOfCounts">{this.state.numberOfComments}</span>
-      </button>
-    );
-  }
+function CommentButton(props) {
+  const { id, dataType, isToggled, numberOfCounts, handleClick } = props;
+  return (
+    <BaseButton
+      classes="photoHoverBtn commentBtn"
+      id={`commentBtn` + dataType + id}
+      onClick={handleClick}
+      innerText={
+        <>
+          <i
+            className={
+              isToggled
+                ? "photoHoverIcon fas fa-comment activeCommentIcon"
+                : "photoHoverIcon fas fa-comment"
+            }
+            data-btntype="commentIcon"
+          ></i>
+          <span className="numberOfCounts">{numberOfCounts}</span>
+        </>
+      }
+    />
+  );
 }
 
 CommentButton.propTypes = {
   isCommented: PropTypes.bool,
   numberOfComments: PropTypes.number,
-  id: PropTypes.number,
+  id: PropTypes.string,
   dataType: PropTypes.string,
 };
 
 CommentButton.defaultProps = {
   isCommented: false,
   numberOfComments: 0,
-  id: 0,
+  id: "",
   dataType: "",
 };
 
-export default CommentButton;
+export default withToggleHandler(CommentButton, (props) => {
+  return {
+    isToggled: props.isCommented,
+    numberOfCounts: props.numberOfComments,
+  };
+});

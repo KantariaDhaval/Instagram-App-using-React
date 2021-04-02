@@ -16,7 +16,7 @@ MessageButton.propTypes = {
   isFollowed: PropTypes.bool,
 };
 
-MessageButton.propTypes = {
+MessageButton.defaultProps = {
   isFollowed: false,
 };
 

@@ -30,7 +30,7 @@ function LikesAndComments(props) {
 }
 
 LikesAndComments.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   numberOfLikes: PropTypes.number,
   numberOfComments: PropTypes.number,
   dataType: PropTypes.string,
@@ -39,7 +39,7 @@ LikesAndComments.propTypes = {
 };
 
 LikesAndComments.defaultProps = {
-  id: 0,
+  id: "",
   numberOfLikes: 0,
   numberOfComments: 0,
   dataType: "",

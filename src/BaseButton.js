@@ -19,9 +19,9 @@ BaseButton.propTypes = {
   classes: PropTypes.string,
   id: PropTypes.string,
   onClick: PropTypes.func,
-  innerText: PropTypes.string,
+  innerText: PropTypes.node,
   menuTabName: PropTypes.string,
-  menuTab: PropTypes.string,
+  menuTab: PropTypes.bool,
 };
 
 BaseButton.defaultProps = {
@@ -29,7 +29,7 @@ BaseButton.defaultProps = {
   id: "",
   onClick: () => {},
   innerText: "",
-  menuTab: "",
+  menuTab: false,
   menuTabName: "",
 };
 
