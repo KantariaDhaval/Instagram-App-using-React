@@ -59,12 +59,12 @@ Posts.defaultProps = {
 };
 
 function mapStateToProps(state) {
+  const { postsData, igtvData, savedData, taggedData } = state.postReducer;
   return {
-    postsData: state.postsData,
-    igtvData: state.igtvData,
-    savedData: state.savedData,
-    taggedData: state.taggedData,
-    currentTab: state.currentTab,
+    postsData: postsData,
+    igtvData: igtvData,
+    savedData: savedData,
+    taggedData: taggedData,
   };
 }
 

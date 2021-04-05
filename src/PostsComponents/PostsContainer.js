@@ -29,8 +29,9 @@ PostsContainer.defaultProps = {
 };
 
 function mapStateToProps(state) {
+  const { currentTab } = state.menuReducer;
   return {
-    currentTab: state.currentTab,
+    currentTab: currentTab,
   };
 }
 

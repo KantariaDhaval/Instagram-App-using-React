@@ -1,6 +1,6 @@
 import { Component } from "react";
 import uuid from "react-uuid";
-import { languages } from "../FooterData";
+import { languages } from "../footerData";
 
 class SelectLanguage extends Component {
   constructor(props) {

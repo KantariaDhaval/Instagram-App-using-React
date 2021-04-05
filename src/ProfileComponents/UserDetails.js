@@ -34,11 +34,17 @@ UserDetails.defaultProps = {
 };
 
 function mapStateToProps(state) {
+  const {
+    username,
+    designation,
+    bio,
+    websiteLink,
+  } = state.postReducer.profileData;
   return {
-    username: state.profileData.username,
-    designation: state.profileData.designation,
-    bio: state.profileData.bio,
-    websiteLink: state.profileData.websiteLink,
+    username: username,
+    designation: designation,
+    bio: bio,
+    websiteLink: websiteLink,
   };
 }
 

@@ -3,6 +3,7 @@ import MenuTab from "./MenuTab";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { menuTabs } from "./menuTabs";
+import { setCurrentTab } from "../Redux/Actions/menuActions";
 
 class Menu extends Component {
   constructor(props) {
@@ -52,22 +53,10 @@ Menu.defaultProps = {
 };
 
 function mapStateToProps(state) {
+  const { currentTab } = state.menuReducer;
   return {
-    currentTab: state.currentTab,
+    currentTab: currentTab,
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    setCurrentTab: (currentTab) => {
-      dispatch({
-        type: "SET_CURRENT_TAB",
-        payload: {
-          currentTab: currentTab,
-        },
-      });
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps, { setCurrentTab })(Menu);

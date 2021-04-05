@@ -5,16 +5,19 @@ import Menu from "./MenuComponents/Menu";
 import Posts from "./PostsComponents/Posts";
 import Footer from "./FooterComponents/Footer";
 import { connect } from "react-redux";
+import { setLoading, setError } from "./Redux/Actions/appActions";
+import { setData } from "./Redux/Actions/postActions";
 
 class App extends Component {
   componentDidMount() {
     fetch("./Data.json")
       .then((response) => response.json())
       .then((data) => {
-        this.props.setStateWithFetchedData(false, data);
+        this.props.setData(data);
+        this.props.setLoading(false);
       })
       .catch((err) => {
-        this.props.setStateWithError(false, true);
+        this.props.setError(false, true);
       });
   }
 
@@ -39,32 +42,11 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
+  const { loading, error } = state.appReducer;
   return {
-    loading: state.loading,
-    error: state.error,
+    loading: loading,
+    error: error,
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    setStateWithFetchedData: (loading, data) => {
-      dispatch({
-        type: "SUCCESS_IN_DATA_FETCHING",
-        payload: {
-          loading: loading,
-          data: data,
-        },
-      });
-    },
-    setStateWithError: (loading, error) => {
-      dispatch({
-        type: "ERROR_IN_FETCHING_DATA",
-        payload: {
-          loading: loading,
-          error: error,
-        },
-      });
-    },
-  };
-}
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, { setLoading, setData, setError })(App);

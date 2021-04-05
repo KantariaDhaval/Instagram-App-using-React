@@ -15,8 +15,9 @@ HandleName.defaultProps = {
 };
 
 function mapStateToProps(state) {
+  const { handleName } = state.postReducer.profileData;
   return {
-    handleName: state.profileData.handleName,
+    handleName: handleName,
   };
 }
 

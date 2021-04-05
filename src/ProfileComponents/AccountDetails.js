@@ -51,9 +51,10 @@ AccountDetails.defaultProps = {
 };
 
 function mapStateToProps(state) {
+  const { numberOfPosts, following } = state.postReducer.profileData;
   return {
-    numberOfPosts: state.profileData.numberOfPosts,
-    following: state.profileData.following,
+    numberOfPosts: numberOfPosts,
+    following: following,
   };
 }
 

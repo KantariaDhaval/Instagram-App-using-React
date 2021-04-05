@@ -20,8 +20,9 @@ ProfilePhoto.defaultProps = {
 };
 
 function mapStateToProps(state) {
+  const { profilePhotoLink } = state.postReducer.profileData;
   return {
-    profilePhotoLink: state.profileData.profilePhotoLink,
+    profilePhotoLink: profilePhotoLink,
   };
 }
 

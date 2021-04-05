@@ -42,9 +42,10 @@ ProfileData.defaultProps = {
 };
 
 function mapStateToProps(state) {
+  const { isFollowed, followers } = state.postReducer.profileData;
   return {
-    isFollowed: state.profileData.isFollowed,
-    followers: state.profileData.followers,
+    isFollowed: isFollowed,
+    followers: followers,
   };
 }
 

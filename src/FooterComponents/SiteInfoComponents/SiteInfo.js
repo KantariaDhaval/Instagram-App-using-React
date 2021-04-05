@@ -1,5 +1,5 @@
 import SiteInfoList from "./SiteInfoList";
-import { listOfInfo } from "../FooterData";
+import { listOfInfo } from "../footerData";
 
 function SiteInfo() {
   return (
