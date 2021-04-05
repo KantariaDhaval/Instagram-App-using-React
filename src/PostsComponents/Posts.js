@@ -1,9 +1,11 @@
 import PostsContainer from "./PostsContainer";
 import { tabNames } from "./../registry";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function Posts(props) {
-  const { postsData, igtvData, savedData, taggedData, currentTab } = props;
+  const { postsData, igtvData, savedData, taggedData } = props;
+
   const dataArray = [
     {
       key: 1,
@@ -33,7 +35,6 @@ function Posts(props) {
         key={currentData.key}
         data={currentData.data}
         name={currentData.name}
-        currentTab={currentTab}
       />
     );
   });
@@ -57,4 +58,14 @@ Posts.defaultProps = {
   currentTab: "POSTS",
 };
 
-export default Posts;
+function mapStateToProps(state) {
+  return {
+    postsData: state.postsData,
+    igtvData: state.igtvData,
+    savedData: state.savedData,
+    taggedData: state.taggedData,
+    currentTab: state.currentTab,
+  };
+}
+
+export default connect(mapStateToProps)(Posts);

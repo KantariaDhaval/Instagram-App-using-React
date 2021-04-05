@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function Header(props) {
   const { profilePhotoLink } = props;
@@ -38,4 +39,10 @@ Header.defaultProps = {
     "https://i.pinimg.com/236x/a0/4d/84/a04d849cf591c2f980548b982f461401.jpg",
 };
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    profilePhotoLink: state.profileData.profilePhotoLink,
+  };
+}
+
+export default connect(mapStateToProps)(Header);

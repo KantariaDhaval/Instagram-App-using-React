@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function HandleName(props) {
   const { handleName } = props;
@@ -13,4 +14,10 @@ HandleName.defaultProps = {
   handleName: "",
 };
 
-export default HandleName;
+function mapStateToProps(state) {
+  return {
+    handleName: state.profileData.handleName,
+  };
+}
+
+export default connect(mapStateToProps)(HandleName);

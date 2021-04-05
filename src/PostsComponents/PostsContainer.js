@@ -1,5 +1,6 @@
 import AddPost from "./AddPost";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function PostsContainer(props) {
   const { data, currentTab, name } = props;
@@ -27,4 +28,10 @@ PostsContainer.defaultProps = {
   name: "",
 };
 
-export default PostsContainer;
+function mapStateToProps(state) {
+  return {
+    currentTab: state.currentTab,
+  };
+}
+
+export default connect(mapStateToProps)(PostsContainer);

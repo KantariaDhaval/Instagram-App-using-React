@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-function OtherDetails(props) {
+function UserDetails(props) {
   const { username, designation, bio, websiteLink } = props;
   return (
     <div id="userDetails">
@@ -18,18 +19,27 @@ function OtherDetails(props) {
   );
 }
 
-OtherDetails.propTypes = {
+UserDetails.propTypes = {
   username: PropTypes.string,
   designation: PropTypes.string,
   bio: PropTypes.string,
   websiteLink: PropTypes.string,
 };
 
-OtherDetails.defaultProps = {
+UserDetails.defaultProps = {
   username: "",
   designation: "",
   bio: "",
   websiteLink: "'",
 };
 
-export default OtherDetails;
+function mapStateToProps(state) {
+  return {
+    username: state.profileData.username,
+    designation: state.profileData.designation,
+    bio: state.profileData.bio,
+    websiteLink: state.profileData.websiteLink,
+  };
+}
+
+export default connect(mapStateToProps)(UserDetails);

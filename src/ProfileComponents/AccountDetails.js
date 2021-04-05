@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function AccountDetails(props) {
-  const { numberOfPosts, followers, following } = props;
+  const { numberOfPosts, following } = props;
+  const { followers } = props;
+
   const accountDetails = [
     {
       id: "numberOfPosts",
@@ -47,4 +50,11 @@ AccountDetails.defaultProps = {
   following: 0,
 };
 
-export default AccountDetails;
+function mapStateToProps(state) {
+  return {
+    numberOfPosts: state.profileData.numberOfPosts,
+    following: state.profileData.following,
+  };
+}
+
+export default connect(mapStateToProps)(AccountDetails);

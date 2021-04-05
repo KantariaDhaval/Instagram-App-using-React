@@ -1,56 +1,44 @@
+import { Component } from "react";
 import MenuTab from "./MenuTab";
-import { tabNames } from "./../registry.js";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { menuTabs } from "./menuTabs";
 
-function Menu(props) {
-  const { changeCurrentTab, currentTab } = props;
+class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this.changeCurrentTab = this.changeCurrentTab.bind(this);
+  }
 
-  const menuTabs = [
-    {
-      key: 1,
-      innerText: tabNames.POSTS,
-      iconClasses: "fas fa-th menuIcon",
-      menuTabName: tabNames.POSTS,
-    },
-    {
-      key: 2,
-      innerText: tabNames.IGTV,
-      iconClasses: "fas fa-tv menuIcon",
-      menuTabName: tabNames.IGTV,
-    },
-    {
-      key: 3,
-      innerText: tabNames.SAVED,
-      iconClasses: "far fa-bookmark  menuIcon",
-      menuTabName: tabNames.SAVED,
-    },
-    {
-      key: 4,
-      innerText: tabNames.TAGGED,
-      iconClasses: "far fa-id-badge  menuIcon",
-      menuTabName: tabNames.TAGGED,
-    },
-  ];
+  changeCurrentTab(event) {
+    if (event.target.dataset.menu_tab) {
+      this.props.setCurrentTab(event.target.dataset.menu_tab_name);
+    }
+  }
 
-  const menuTabElements = menuTabs.map((menuTab) => {
+  render() {
+    const { currentTab } = this.props;
+
+    const menuTabElements = menuTabs.map((menuTab) => {
+      return (
+        <MenuTab
+          key={menuTab.key}
+          currentTab={currentTab}
+          innerText={menuTab.innerText}
+          iconClasses={menuTab.iconClasses}
+          menuTabName={menuTab.menuTabName}
+        />
+      );
+    });
+
     return (
-      <MenuTab
-        key={menuTab.key}
-        currentTab={currentTab}
-        innerText={menuTab.innerText}
-        iconClasses={menuTab.iconClasses}
-        menuTabName={menuTab.menuTabName}
-      />
-    );
-  });
-
-  return (
-    <div id="menu">
-      <div id="menuContainer" onClick={changeCurrentTab}>
-        {menuTabElements}
+      <div id="menu">
+        <div id="menuContainer" onClick={this.changeCurrentTab}>
+          {menuTabElements}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 Menu.propTypes = {
@@ -63,4 +51,23 @@ Menu.defaultProps = {
   currentTab: "POSTS",
 };
 
-export default Menu;
+function mapStateToProps(state) {
+  return {
+    currentTab: state.currentTab,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setCurrentTab: (currentTab) => {
+      dispatch({
+        type: "SET_CURRENT_TAB",
+        payload: {
+          currentTab: currentTab,
+        },
+      });
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

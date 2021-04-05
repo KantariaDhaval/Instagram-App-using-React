@@ -5,11 +5,10 @@ import DropdownButton from "./DropdownButton";
 import PropTypes from "prop-types";
 
 function Handle(props) {
-  const { handleName, isFollowed, handleFollowButtonClick } = props;
-
+  const { isFollowed, handleFollowButtonClick } = props;
   return (
     <div id="handle">
-      <HandleName handleName={handleName} />
+      <HandleName />
       <FollowButton
         isFollowed={isFollowed}
         handleClick={handleFollowButtonClick}
