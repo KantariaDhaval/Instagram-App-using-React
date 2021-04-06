@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/KantariaDhaval/Instagram-App-using-React/static/css/main.c3fa00c8.chunk.css",
+    "main.js": "/KantariaDhaval/Instagram-App-using-React/static/js/main.6f2ceb19.chunk.js",
+    "main.js.map": "/KantariaDhaval/Instagram-App-using-React/static/js/main.6f2ceb19.chunk.js.map",
+    "runtime-main.js": "/KantariaDhaval/Instagram-App-using-React/static/js/runtime-main.5e26a986.js",
+    "runtime-main.js.map": "/KantariaDhaval/Instagram-App-using-React/static/js/runtime-main.5e26a986.js.map",
+    "static/js/2.d1948cac.chunk.js": "/KantariaDhaval/Instagram-App-using-React/static/js/2.d1948cac.chunk.js",
+    "static/js/2.d1948cac.chunk.js.map": "/KantariaDhaval/Instagram-App-using-React/static/js/2.d1948cac.chunk.js.map",
+    "index.html": "/KantariaDhaval/Instagram-App-using-React/index.html",
+    "static/css/main.c3fa00c8.chunk.css.map": "/KantariaDhaval/Instagram-App-using-React/static/css/main.c3fa00c8.chunk.css.map",
+    "static/js/2.d1948cac.chunk.js.LICENSE.txt": "/KantariaDhaval/Instagram-App-using-React/static/js/2.d1948cac.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5e26a986.js",
+    "static/js/2.d1948cac.chunk.js",
+    "static/css/main.c3fa00c8.chunk.css",
+    "static/js/main.6f2ceb19.chunk.js"
+  ]
+}
