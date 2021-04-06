@@ -1,24 +1,8 @@
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function HandleName(props) {
-  const { handleName } = props;
+function HandleName() {
+  const { handleName } = useSelector((state) => state.profileData);
   return <div id="handleName">{handleName}</div>;
 }
 
-HandleName.propTypes = {
-  handleName: PropTypes.string,
-};
-
-HandleName.defaultProps = {
-  handleName: "",
-};
-
-function mapStateToProps(state) {
-  const { handleName } = state.postReducer.profileData;
-  return {
-    handleName: handleName,
-  };
-}
-
-export default connect(mapStateToProps)(HandleName);
+export default HandleName;

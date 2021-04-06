@@ -1,10 +1,11 @@
 import PostsContainer from "./PostsContainer";
 import { tabNames } from "./../registry";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function Posts(props) {
-  const { postsData, igtvData, savedData, taggedData } = props;
+function Posts() {
+  const { postsData, igtvData, savedData, taggedData } = useSelector(
+    (state) => state.posts
+  );
 
   const dataArray = [
     {
@@ -42,30 +43,4 @@ function Posts(props) {
   return <div id="postsWrapper">{dataArrayElements}</div>;
 }
 
-Posts.propTypes = {
-  postsData: PropTypes.array,
-  igtvData: PropTypes.array,
-  savedData: PropTypes.array,
-  taggedData: PropTypes.array,
-  currentTab: PropTypes.string,
-};
-
-Posts.defaultProps = {
-  postsData: [],
-  igtvData: [],
-  savedData: [],
-  taggedData: [],
-  currentTab: "POSTS",
-};
-
-function mapStateToProps(state) {
-  const { postsData, igtvData, savedData, taggedData } = state.postReducer;
-  return {
-    postsData: postsData,
-    igtvData: igtvData,
-    savedData: savedData,
-    taggedData: taggedData,
-  };
-}
-
-export default connect(mapStateToProps)(Posts);
+export default Posts;

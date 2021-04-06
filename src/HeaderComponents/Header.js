@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function Header(props) {
-  const { profilePhotoLink } = props;
+function Header() {
+  const { profilePhotoLink } = useSelector((state) => state.profileData);
+
   return (
     <div id="header">
       <div id="headerContainer">
@@ -39,11 +40,4 @@ Header.defaultProps = {
     "https://i.pinimg.com/236x/a0/4d/84/a04d849cf591c2f980548b982f461401.jpg",
 };
 
-function mapStateToProps(state) {
-  const { profilePhotoLink } = state.postReducer.profileData;
-  return {
-    profilePhotoLink: profilePhotoLink,
-  };
-}
-
-export default connect(mapStateToProps)(Header);
+export default Header;

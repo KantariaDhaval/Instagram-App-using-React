@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function AccountDetails(props) {
-  const { numberOfPosts, following } = props;
-  const { followers } = props;
+function AccountDetails() {
+  const { numberOfPosts, following, followers } = useSelector(
+    (state) => state.profileData
+  );
 
   const accountDetails = [
     {
@@ -38,24 +38,4 @@ function AccountDetails(props) {
   return <div id="accountDetails">{accountDetailsElements}</div>;
 }
 
-AccountDetails.propTypes = {
-  numberOfPosts: PropTypes.number,
-  followers: PropTypes.number,
-  following: PropTypes.number,
-};
-
-AccountDetails.defaultProps = {
-  numberOfPosts: 0,
-  followers: 0,
-  following: 0,
-};
-
-function mapStateToProps(state) {
-  const { numberOfPosts, following } = state.postReducer.profileData;
-  return {
-    numberOfPosts: numberOfPosts,
-    following: following,
-  };
-}
-
-export default connect(mapStateToProps)(AccountDetails);
+export default AccountDetails;

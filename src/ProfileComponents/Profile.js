@@ -1,6 +1,5 @@
 import ProfilePhoto from "./ProfilePhoto";
 import ProfileData from "./ProfileData";
-import PropTypes from "prop-types";
 
 function Profile() {
   return (
@@ -12,13 +11,5 @@ function Profile() {
     </div>
   );
 }
-
-Profile.propTypes = {
-  profileData: PropTypes.object,
-};
-
-Profile.defaultProps = {
-  profileData: {},
-};
 
 export default Profile;

@@ -1,8 +1,14 @@
 import BaseButton from "../../BaseButton";
-import PropTypes from "prop-types";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleFollow } from "../../Redux/Reducers/profileData";
 
-function FollowButton(props) {
-  const { isFollowed, handleClick } = props;
+function FollowButton() {
+  const dispatch = useDispatch();
+  const { isFollowed } = useSelector((state) => state.profileData);
+
+  function handleClick() {
+    dispatch(toggleFollow());
+  }
   return (
     <BaseButton
       classes={isFollowed ? "followBtn activeFollowBtn" : "followBtn"}
@@ -12,15 +18,5 @@ function FollowButton(props) {
     />
   );
 }
-
-FollowButton.propTypes = {
-  isFollowed: PropTypes.bool,
-  handleClick: PropTypes.func,
-};
-
-FollowButton.defaultProps = {
-  isFollowed: false,
-  handleClick: () => {},
-};
 
 export default FollowButton;

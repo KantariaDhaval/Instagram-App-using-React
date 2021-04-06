@@ -1,9 +1,10 @@
 import AddPost from "./AddPost";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 function PostsContainer(props) {
-  const { data, currentTab, name } = props;
+  const { data, name } = props;
+  const { currentTab } = useSelector((state) => state.menu);
 
   const postElements = data.map((post) => {
     return <AddPost key={post.id} post={post} />;
@@ -18,21 +19,12 @@ function PostsContainer(props) {
 
 PostsContainer.propTypes = {
   data: PropTypes.array,
-  currentTab: PropTypes.string,
   name: PropTypes.string,
 };
 
 PostsContainer.defaultProps = {
   data: [],
-  currentTab: "POSTS",
   name: "",
 };
 
-function mapStateToProps(state) {
-  const { currentTab } = state.menuReducer;
-  return {
-    currentTab: currentTab,
-  };
-}
-
-export default connect(mapStateToProps)(PostsContainer);
+export default PostsContainer;

@@ -1,11 +1,20 @@
-import { createStore } from "redux";
-import { appReducer } from "./Reducers/appReducer";
-import { menuReducer } from "./Reducers/menuReducer";
-import { postReducer } from "./Reducers/postReducer";
-import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./Reducers";
+import logger from "redux-logger";
 
-const store = createStore(
-  combineReducers({ appReducer, menuReducer, postReducer })
-);
+const myLogger = (store) => (next) => (action) => {
+  console.log("Logged actions: ", action);
+  next(action);
+};
+
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(myLogger, logger),
+});
+
+store.subscribe(() => {
+  console.log("Store updated: ", store.getState());
+});
 
 export { store };

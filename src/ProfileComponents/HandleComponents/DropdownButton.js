@@ -1,8 +1,8 @@
 import BaseButton from "../../BaseButton";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
-function DropdownButton(props) {
-  const { isFollowed } = props;
+function DropdownButton() {
+  const { isFollowed } = useSelector((state) => state.profileData);
   return (
     <BaseButton
       classes={isFollowed ? "dropdownBtn activeFollowBtn" : "dropdownBtn"}
@@ -11,13 +11,5 @@ function DropdownButton(props) {
     />
   );
 }
-
-DropdownButton.propTypes = {
-  isFollowed: PropTypes.bool,
-};
-
-DropdownButton.defaultProps = {
-  isFollowed: false,
-};
 
 export default DropdownButton;

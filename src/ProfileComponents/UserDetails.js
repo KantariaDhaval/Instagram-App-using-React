@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function UserDetails(props) {
-  const { username, designation, bio, websiteLink } = props;
+function UserDetails() {
+  const { username, designation, bio, websiteLink } = useSelector(
+    (state) => state.profileData
+  );
   return (
     <div id="userDetails">
       <div id="username">
@@ -33,19 +35,4 @@ UserDetails.defaultProps = {
   websiteLink: "'",
 };
 
-function mapStateToProps(state) {
-  const {
-    username,
-    designation,
-    bio,
-    websiteLink,
-  } = state.postReducer.profileData;
-  return {
-    username: username,
-    designation: designation,
-    bio: bio,
-    websiteLink: websiteLink,
-  };
-}
-
-export default connect(mapStateToProps)(UserDetails);
+export default UserDetails;

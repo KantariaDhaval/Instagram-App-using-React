@@ -1,8 +1,8 @@
 import BaseButton from "../../BaseButton";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
-function MessageButton(props) {
-  const { isFollowed } = props;
+function MessageButton() {
+  const { isFollowed } = useSelector((state) => state.profileData);
   return (
     <BaseButton
       classes={isFollowed ? "messageBtn" : "messageBtn hidden"}
@@ -11,13 +11,5 @@ function MessageButton(props) {
     />
   );
 }
-
-MessageButton.propTypes = {
-  isFollowed: PropTypes.bool,
-};
-
-MessageButton.defaultProps = {
-  isFollowed: false,
-};
 
 export default MessageButton;
